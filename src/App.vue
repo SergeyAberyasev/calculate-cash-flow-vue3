@@ -16,13 +16,14 @@ body {
 	padding: 0;
 }
 
+
 .contaner {
 	background-color: white;
 	border-radius: 10px;
 	margin: 0 auto;
 	padding: 8px;
 	text-align: center;
-	width: 70%;
+	width: 50%;
 	box-shadow: 0px 0px 13px 2px #2c2a26;
 }
 
@@ -30,26 +31,23 @@ p {
 	font-size: 18px;
 }
 
-.inline {
-	display: inline-block;
-}
-
 .input {
-	height: 20px;
-	width: 200px;
+	font-size: 16px;
+	height: 30px;
+	width: 70%;
 	padding: 5px;
 	margin: 5px;
-	border-radius: 15px;
+	border-radius: 20px;
 	border: 3px solid rgb(141, 141, 141);
 }
 .mini_l {
-	width: 90px;
-	border-radius: 15px 0 0 15px;
+	width: 33.5%;
+	border-radius: 20px 0 0 20px;
 	margin: 5px 1px 0 0;
 }
 .mini_r {
-	width: 90px;
-	border-radius: 0 15px 15px 0;
+	width: 33.5%;
+	border-radius: 0 20px 20px 0;
 	margin: 5px 1px 0 1px;
 }
 
@@ -68,11 +66,13 @@ input::-webkit-inner-spin-button {
 	color: rgb(255, 255, 255);
 	margin: 10px;
 	padding: 0, 15px, 15px, 0;
-	height: 35px;
-	width: 200px;
-	border-radius: 4px;
+	height: 40px;
+	width: 150px;
+	border-radius: 20px;
 	font-weight: bold;
+	font-size: 16px;
 }
+
 
 .hr {
 	border: 0;

@@ -1,7 +1,5 @@
 <template>
-	<div class="contaner">
-		<form-comp/>
-	</div>
+	<form-comp />
 </template>
 
 <script>
