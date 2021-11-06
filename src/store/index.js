@@ -29,21 +29,21 @@ export default createStore({
 				placeholder: 'Кол-во смен в месяце',
 				value: null,
 				class: 'input',
-				title: '✅ Количество смен в расчётном месяце.',
+				title: '✅ Кол-во смен в расчётном месяце.',
 			},
 		],
 		inputs_mini: [
 			{
 				name: 'work_people',
-				placeholder: 'Кол. человек',
+				placeholder: 'Кол-во чел-к в смене',
 				value: null,
 				class: 'input mini_l inline',
 				name_: 'my_days',
-				placeholder_: 'Кол. смен',
+				placeholder_: 'Кол-во смен',
 				value_: null,
 				class_: 'input mini_r inline',
 				title:
-					'✅ В данных двух полях необходимо указать число рабочих данного цеха и количество отработанных смен в данном составе. Если количество менялось то нажмите "ДОБАВИТЬ" и укажите дополнительный состав. ПРИМЕР при количестве смен в месяце = 21: {Кол. человек = 5, Кол. смен = 15} [ДОБАВИТЬ] {Кол. человек = 3, Кол. смен = 6}',
+					'✅ ПРИМЕР (при кол-ве смен в месяце = 21 д.):  [ Кол-во чел-к в смене = 5, Кол-во смен = 15 ] ➟ [ ДОБАВИТЬ ] ➟ [ Кол-во чел-к в смене = 3, Кол-во смен = 6 ]',
 			},
 		],
 		values: {},
@@ -53,7 +53,6 @@ export default createStore({
 	mutations: {
 		onSubmit(state) {
 			let inputs = [...state.inputs_st, ...state.inputs_mini];
-			console.log(values);
 			let all_my_days = 0;
 			let values = state.values;
 			let peoples = [];
@@ -80,14 +79,10 @@ export default createStore({
 				}
 				if (state_input.name_ === 'my_days') {
 					days.push(state_input.value_);
-					console.log('my_days', days);
 					values['my_days'] = days;
 				}
 			}
 
-			console.log(peoples);
-			console.log(days);
-			console.log(values);
 			let my_ue = null;
 			let my_oklad = null;
 			for (let key in values.my_days) {
@@ -100,6 +95,7 @@ export default createStore({
 			}
 			state.cash = Math.floor(my_ue + my_oklad);
 			state.all_my_days = all_my_days;
+
 			console.log(state.cash);
 		},
 		add_inputs(state) {
@@ -113,7 +109,7 @@ export default createStore({
 				value_: null,
 				class_: 'input mini_r inline',
 				title:
-					'✅ В данных двух полях необходимо указать число рабочих данного цеха и количество отработанных смен в данном составе. Если количество менялось то нажмите "ДОБАВИТЬ" и укажите дополнительный состав. ПРИМЕР при количестве смен в месяце = 21: {Кол. человек = 5, Кол. смен = 15} [ДОБАВИТЬ] {Кол. человек = 3, Кол. смен = 6}',
+					'✅ ПРИМЕР (при кол-ве смен в месяце = 21 д.):  [ Кол-во чел-к в смене = 5, Кол-во смен = 15 ] ➟ [ ДОБАВИТЬ ] ➟ [ Кол-во чел-к в смене = 3, Кол-во смен = 6 ]',
 			});
 		},
 		del_inputs(state){
@@ -121,16 +117,16 @@ export default createStore({
 		},
 		clear(state){
 			for(let i in state.inputs_st){
-				console.log(i);
 				state.inputs_st[i].value = null
 			}
 			for(let i in state.inputs_mini){
-				console.log(i);
 				state.inputs_mini[i].value_ = null
 				state.inputs_mini[i].value = null
 			}
+			state.values.days = null
 			state.all_my_days = null
 			state.cash = null
+			
 		}
 	},
 	actions: {},

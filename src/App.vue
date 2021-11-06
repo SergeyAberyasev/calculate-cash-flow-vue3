@@ -37,17 +37,17 @@ p {
 	width: 70%;
 	padding: 5px;
 	margin: 5px;
-	border-radius: 20px;
+	border-radius: 25px;
 	border: 3px solid rgb(141, 141, 141);
 }
 .mini_l {
 	width: 33.5%;
-	border-radius: 20px 0 0 20px;
+	border-radius: 25px 0 0 25px;
 	margin: 5px 1px 0 0;
 }
 .mini_r {
 	width: 33.5%;
-	border-radius: 0 20px 20px 0;
+	border-radius: 0 25px 25px 0;
 	margin: 5px 1px 0 1px;
 }
 
