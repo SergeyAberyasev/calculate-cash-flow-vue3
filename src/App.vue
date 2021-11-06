@@ -23,7 +23,8 @@ body {
 	margin: 0 auto;
 	padding: 8px;
 	text-align: center;
-	width: 50%;
+	width: 95%;
+	max-width: 500px;
 	box-shadow: 0px 0px 13px 2px #2c2a26;
 }
 
