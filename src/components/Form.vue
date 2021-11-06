@@ -1,7 +1,7 @@
 <template>
 	<div class="contaner">
 		<h1 style="color: rgb(81, 68, 68)">
-			Calculate Cash Flow <small style="font-size: 25px">✅</small>
+			Калькулятор Заработной Платы <small style="font-size: 25px">✅</small>
 		</h1>
 		<hr class="hr" />
 

@@ -24,6 +24,7 @@ body {
 	padding: 8px;
 	text-align: center;
 	width: 95%;
+	min-width: 320px;
 	max-width: 500px;
 	box-shadow: 0px 0px 13px 2px #2c2a26;
 }

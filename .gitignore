@@ -4,6 +4,7 @@ node_modules
 /.firebase
 firebase.json
 .firebaserc
+firebase.json
 vetur.config.js
 
 # local env files
