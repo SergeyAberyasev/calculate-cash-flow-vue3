@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-# /dist
+/dist
 vetur.config.js
 
 # local env files
