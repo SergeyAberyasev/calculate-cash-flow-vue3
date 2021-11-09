@@ -7,15 +7,18 @@
 
 		<form @submit.prevent="onSubmit">
 			<div>
-				<input type="checkbox" id="checkbox" v-model="$store.state.checked" />
+				<input type="checkbox" id="checkbox" v-model="$store.state.checked" /> Подробно
+				
+			</div>
+			<div>
 				<button style="background-color: #16c60c" class="btn" type="submit">
 					✔ ВЫСЧИТАТЬ
 				</button>
 			</div>
-			<div :key="key" v-for="(i, key) in $store.state.inputs_st">
+			<div :v="i" :key="key" v-for="(i, key) in $store.state.inputs_st">
 				<inputN :i="i"></inputN>
 			</div>
-			<div :key="key" v-for="(i, key) in $store.state.inputs_mini">
+			<div v-for="(i, key) in $store.state.inputs_mini">
 				<div>
 					<button class="btn" v-if="key > 0" @click="del_inputs">
 						❌ УДАЛИТЬ
@@ -65,12 +68,20 @@
 					<b style="color: rgb(255, 68, 68)">{{ $store.state.all_my_days }}</b>
 					д.
 				</p>
-				
 			</div>
-			<div style="text-align: left;" v-if="$store.state.checked">
-				<p>- Оклад: {{   }}</p>
-				<p
-				<p>- Смен: {{$store.state.values.days}} (Отработанных: {{$store.state.all_my_days}})</p>
+			<div style="text-align: left" v-if="$store.state.checked">
+				<hr>
+				<label  v-for="(i, key) in $store.state.inputs_st">
+					<p v-if="i.name === 'oklad'">- Оклад: {{ i.value }} ₽ </p>
+					<p v-if="i.name === 'ue'">- Общее заработанное УЕ за месяц: {{ i.value }} </p>
+					<p v-if="i.name === 'ue_ceh'">- Цена одного УЕ на цех: {{ i.value }} ₽ </p>
+					<p v-if="i.name === 'days'">- Кол-во смен в месяце: {{ i.value }} д. </p>
+				</label>
+				<label  v-for="(i, key) in $store.state.inputs_mini">
+					<p v-if="i.name === 'work_people'">- Чел-к в смене: {{ i.value }} ➟ Смен: {{ i.value_ }} д.</p>
+				</label>
+				<hr>
+				
 			</div>
 		</div>
 	</div>
@@ -81,6 +92,11 @@ import inputN from './Input.vue';
 import inputs from './Inputs.vue';
 
 export default {
+	data() {
+		return {
+			values_days: null
+		}
+	},
 	components: { inputN, inputs },
 	methods: {
 		onSubmit() {
@@ -94,9 +110,6 @@ export default {
 		},
 		clear() {
 			this.$store.commit('clear');
-		},
-		checked() {
-			this.$store.commit('checked');
 		},
 	},
 };
