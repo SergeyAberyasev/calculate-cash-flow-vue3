@@ -49,6 +49,7 @@ export default createStore({
 		values: {},
 		cash: null,
 		all_my_days: null,
+		checked: false
 	},
 	mutations: {
 		onSubmit(state) {
@@ -97,6 +98,12 @@ export default createStore({
 			state.all_my_days = all_my_days;
 
 			console.log(state.cash);
+			if(!state.checked){
+				console.log('checked off');
+			}
+			else{
+				console.log('checked on');
+			}
 		},
 		add_inputs(state) {
 			state.inputs_mini.push({

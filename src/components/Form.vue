@@ -7,6 +7,7 @@
 
 		<form @submit.prevent="onSubmit">
 			<div>
+				<input type="checkbox" id="checkbox" v-model="$store.state.checked" />
 				<button style="background-color: #16c60c" class="btn" type="submit">
 					✔ ВЫСЧИТАТЬ
 				</button>
@@ -64,6 +65,12 @@
 					<b style="color: rgb(255, 68, 68)">{{ $store.state.all_my_days }}</b>
 					д.
 				</p>
+				
+			</div>
+			<div style="text-align: left;" v-if="$store.state.checked">
+				<p>- Оклад: {{   }}</p>
+				<p
+				<p>- Смен: {{$store.state.values.days}} (Отработанных: {{$store.state.all_my_days}})</p>
 			</div>
 		</div>
 	</div>
@@ -87,6 +94,9 @@ export default {
 		},
 		clear() {
 			this.$store.commit('clear');
+		},
+		checked() {
+			this.$store.commit('checked');
 		},
 	},
 };
